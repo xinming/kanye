@@ -2,6 +2,7 @@ require 'httparty'
 require 'nokogiri'
 require 'mp3info'
 require 'sqlite3'
+require 'uri'
 
 require 'kanye/page'
 require 'kanye/track'

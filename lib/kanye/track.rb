@@ -17,7 +17,7 @@ module Kanye
     end
   
     def download!
-      raise(NoKeyError, "Couldn't find :key for '#{self}'") if key.blank?
+      raise(NoKeyError, "Couldn't find :key for '#{self}'") if (key.empty? || key.nil?)
     
       response = HTTParty.get(url, :headers => {'cookie' => cookie})
       raise "Response Code '#{response.code}' - Something has changed." unless response.code == 200
@@ -26,7 +26,7 @@ module Kanye
       print "Attempting to download ", self
       puts "\n\tDownloading song..."
     
-      mp3_url = response.parsed_response["url"]
+      mp3_url = URI.escape(response.parsed_response["url"])
       mp3_response = HTTParty.get(mp3_url)
     
       File.open(filename, "wb") do |f|

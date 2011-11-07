@@ -28,6 +28,7 @@ Gem::Specification.new do |s|
     "bin/kanye",
     "kanye.gemspec",
     "lib/kanye.rb",
+    "lib/kanye/page.rb",
     "lib/kanye/history.rb",
     "lib/kanye/track.rb",
     "spec/data/sample.html",
